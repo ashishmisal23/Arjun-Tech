@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Style/contact-us.css';
 import { Link } from 'react-router-dom';
+import ContactForm from './ContactForm';
 
 
 
@@ -27,6 +28,7 @@ const ContactUs = () => {
                         <p className="white-color align-center fifth-large-heading"><Link to="mailto:admin@arjuntech.in"
                             className="white-color" target='_blank'>admin@arjuntech.in</Link></p>
                     </div>
+                    <ContactForm />
                 </div>
 
             </div>

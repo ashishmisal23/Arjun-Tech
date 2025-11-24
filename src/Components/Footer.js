@@ -1,57 +1,171 @@
-import React from 'react';
-import '../Style/footer.css';
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import { Box, Grid, Typography, Link as MuiLink, List, ListItem } from "@mui/material";
 
 const Footer = () => {
     return (
-        <footer className="footer grey-bg-color">
-            <div className="footer-container">
-                <div className="column-1">
-                    <h3 className="white-color">Arjun Tech</h3>
-                    <p className="dim2-white-color">
+        <Box
+            component="footer"
+            sx={{
+                // background: "rgba(0,0,0,0.75)",
+                background: '#383838',
+                backdropFilter: "blur(8px)",
+                color: "#ffffffc9",
+                width: "100%",
+                mt: 6,
+                py: { xs: 4, md: 6 },
+            }}
+        >
+            <Grid
+                container
+                spacing={{ xs: 3, md: 6 }}
+                justifyContent="center"
+                textAlign="center"
+                sx={{
+                    maxWidth: "1200px",
+                    margin: "0 auto",
+                    px: { xs: 2, sm: 4, md: 6 }
+                }}
+            >
+                {/* Column 1 */}
+                <Grid item xs={12} sm={6} md={4}>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            color: "white",
+                            mb: 1.2,
+                            fontWeight: 700,
+                            fontSize: { xs: "18px", md: "22px" },
+                        }}
+                    >
+                        Arjun Tech
+                    </Typography>
+
+                    <Typography
+                        sx={{
+                            fontSize: { xs: "14px", md: "15px" },
+                            lineHeight: 1.7,
+                            color: "#ffffffc9"
+                        }}
+                    >
                         Shop No. 03, Near Shell Petrol Pump, <br />
                         Durvankur Society, Ashoka Nagar, <br />
                         Kharadi, Pune - 411014
-                    </p>
+                    </Typography>
+                </Grid>
 
+                {/* Column 2 */}
+                <Grid item xs={12} sm={6} md={4}>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            color: "white",
+                            mb: 1.2,
+                            fontWeight: 700,
+                            fontSize: { xs: "18px", md: "22px" }
+                        }}
+                    >
+                        Working Hours
+                    </Typography>
 
-                </div>
-                <div className="column-2">
-                    <h3 className="white-color">Working Hours</h3>
-                    <p className="dim2-white-color">Monday to Saturday
-                        <br />
-                        10:00 AM – 08:00 PM <br />
-                    </p>
-                </div>
-                <div className="column-3">
-                    <h3 className="white-color">Contact</h3>
-                    <ul>
-                        <li className="dim2-white-color">
-                            <div className="icons">
-                                <span className="material-symbols-outlined">
-                                    call
-                                </span>
-                                <p className=""><Link to="tel:+917879797676" target='_blank'>+91 78 7979 7676</Link></p>
-                            </div>
-                        </li>
-                        <li className="dim2-white-color">
-                            <div className="icons">
-                                <span className="material-symbols-outlined">
-                                    mail
-                                </span>
-                                <p className=""><Link to="mailto:admin@arjuntech.in" target='_blank'>admin@arjuntech.in</Link></p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                    <Typography sx={{ fontSize: { xs: "14px", md: "15px" }, lineHeight: 1.7 }}>
+                        Monday to Saturday <br />
+                        10:00 AM – 08:00 PM
+                    </Typography>
+                </Grid>
 
-            </div>
-            <div className="footer-desclaimer">
-                <p className="dim2-white-color align-center">Copyright © 2018 Arjun Tech</p>
-            </div>
-        </footer>
-    )
-}
+                {/* Column 3 */}
+                <Grid item xs={12} sm={12} md={4}>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            color: "white",
+                            mb: 1.2,
+                            fontWeight: 700,
+                            fontSize: { xs: "18px", md: "22px" }
+                        }}
+                    >
+                        Contact
+                    </Typography>
 
-export default Footer
+                    <List sx={{ p: 0 }}>
+                        <ListItem
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                                justifyContent: "center",
+                                px: 0,
+                                transition: "0.3s",
+                            }}
+                        >
+                            <span className="material-symbols-outlined" style={{ fontSize: 22, color: "#ffffff" }}>call</span>
+                            <MuiLink
+                                href="tel:+917879797676"
+                                target="_blank"
+                                underline="none"
+                                sx={{
+                                    color: "#ffffffc9",
+                                    fontSize: { xs: "14px", md: "15px" },
+                                    fontWeight: 500,
+                                    transition: "0.3s"
+                                }}
+                            >
+                                +91 78 7979 7676
+                            </MuiLink>
+                        </ListItem>
+
+                        <ListItem
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                                justifyContent: "center",
+                                px: 0,
+                                transition: "0.3s",
+                            }}
+                        >
+                            <span className="material-symbols-outlined" style={{ fontSize: 22, color: "#ffffff" }}>mail</span>
+                            <MuiLink
+                                href="mailto:admin@arjuntech.in"
+                                target="_blank"
+                                underline="none"
+                                sx={{
+                                    color: "#ffffffc9",
+                                    fontSize: { xs: "14px", md: "15px" },
+                                    fontWeight: 500,
+                                    transition: "0.3s",
+                                }}
+                            >
+                                admin@arjuntech.in
+                            </MuiLink>
+                        </ListItem>
+                    </List>
+                </Grid>
+            </Grid>
+
+            {/* Divider */}
+            <Box
+                sx={{
+                    width: "85%",
+                    height: "1px",
+                    backgroundColor: "rgba(255,255,255,0.25)",
+                    mt: 3,
+                    mx: "auto",
+                }}
+            />
+
+            <Typography
+                sx={{
+                    textAlign: "center",
+                    mt: 2,
+                    fontSize: { xs: "12px", md: "14px" },
+                    color: "#ffffffb5",
+                }}
+            >
+                © {new Date().getFullYear()} Arjun Tech. All Rights Reserved.
+            </Typography>
+        </Box>
+    );
+};
+
+export default Footer;
