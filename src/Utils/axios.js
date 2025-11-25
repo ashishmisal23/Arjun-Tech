@@ -12,7 +12,11 @@ export const submitContactForm = async (formData) => {
     };
 
     try {
-        const res = await axios.post(url, payload);
+        const res = await axios.post(url, new URLSearchParams(payload), {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+        });
         return res.status === 200;
     } catch (err) {
         throw err;
