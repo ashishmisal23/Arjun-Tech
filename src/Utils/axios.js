@@ -1,22 +1,19 @@
 import axios from "axios";
-import { getEnvironmentUrl } from './utils.js'
+import { getEnvironmentUrl, getHeaders, getStringifyData } from './utils'
 
 export const submitContactForm = async (formData) => {
     const url = getEnvironmentUrl();
-
-    const payload = {
-        name: formData.name,
-        mobile: formData.mobile,
-        email: formData.email,
-        message: formData.message,
-    };
+    const headers = getHeaders();
+    const payload = getStringifyData(formData);
 
     try {
-        const res = await axios.post(url, new URLSearchParams(payload), {
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-        });
+        const res = await axios.post(
+            url,
+            payload,
+            {
+                headers
+            }
+        );
         return res.status === 200;
     } catch (err) {
         throw err;
